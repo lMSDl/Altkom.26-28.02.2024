@@ -10,25 +10,30 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Creational.Builder
     {
         private Vehicle Vehicle = new Vehicle();
 
-        public void SetWeels(int value)
+        public VehicleBuilder SetWeels(int value)
         {
             Vehicle.Wheels = value;
+            return this;
         }
-        public void SetDoors(int value)
+        public VehicleBuilder SetDoors(int value)
         {
             Vehicle.Doors = value;
+            return this;
         }
-        public void SetEngine(int? value)
+        public VehicleBuilder SetEngine(int? value)
         {
             Vehicle.EnginePower = value;
+            return this;
         }
-        public void SetTrunk(int? value)
+        public VehicleBuilder SetTrunk(int? value)
         {
             Vehicle.TrunkCapacity = value;
+            return this;
         }
-        public void SetSeets(int value)
+        public VehicleBuilder SetSeets(int value)
         {
             Vehicle.Seats = value;
+            return this;
         }
 
         public Vehicle Build()

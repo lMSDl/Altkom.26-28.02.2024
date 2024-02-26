@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Altkom._26_28._02._2024.DesignPatterns.Creational.Builder
+﻿namespace Altkom._26_28._02._2024.DesignPatterns.Creational.Builder
 {
     internal class Client
     {
@@ -21,6 +15,16 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Creational.Builder
 
 
             var vehicle = builder.Build();
+            Console.WriteLine(vehicle);
+
+            vehicle = new VehicleBuilder()
+                                .SetWeels(4)
+                                .SetDoors(4)
+                                .SetTrunk(500)
+                                .SetSeets(5)
+                                .SetEngine(150)
+                                .Build();
+
             Console.WriteLine(vehicle);
 
 
