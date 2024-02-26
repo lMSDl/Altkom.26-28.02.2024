@@ -22,13 +22,13 @@ namespace Altkom._26_28._02._2024.DesignPrinciples
 
         public bool Charge(int accountId, float amount)
         {
-            var account = PaymentAccounts.SingleOrDefault(x => x.Id == accountId);
+            var account = GetById(accountId);
             if (account == null)
             {
                 return false;
             }
 
-            if (account.Incomes - account.Outcomes + account.AllowedDebit < amount)
+            if (GetBalance(accountId) + account.AllowedDebit < amount)
             {
                 return false;
             }
@@ -39,7 +39,7 @@ namespace Altkom._26_28._02._2024.DesignPrinciples
 
         public void Fund(int accountId, float amount)
         {
-            var account = PaymentAccounts.Where(x => x.Id == accountId).SingleOrDefault();
+            var account = GetById(accountId);
             if (account == null)
             {
                 return;
@@ -50,8 +50,13 @@ namespace Altkom._26_28._02._2024.DesignPrinciples
 
         public float? GetBalance(int accountId)
         {
-            var account = PaymentAccounts.Where(x => x.Id == accountId).SingleOrDefault();
+            var account = GetById(accountId);
             return account?.Incomes - account?.Outcomes;
+        }
+
+        private PaymentAccount? GetById(int accountId)
+        {
+            return PaymentAccounts.Where(x => x.Id == accountId).SingleOrDefault();
         }
     }
 }
