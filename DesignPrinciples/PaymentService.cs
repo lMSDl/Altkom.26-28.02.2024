@@ -13,35 +13,12 @@ namespace Altkom._26_28._02._2024.DesignPrinciples
         public bool Charge(int accountId, float amount)
         {
             var account = GetById(accountId);
-            if (account == null)
-            {
-                return false;
-            }
-
-            if (GetBalance(accountId) + account.AllowedDebit < amount)
-            {
-                return false;
-            }
-
-            account.Outcomes += amount;
-            return true;
+            return account?.Charge(amount) ?? false;
         }
 
         public void Fund(int accountId, float amount)
         {
-            var account = GetById(accountId);
-            if (account == null)
-            {
-                return;
-            }
-
-            account.Incomes += amount;
-        }
-
-        public float? GetBalance(int accountId)
-        {
-            var account = GetById(accountId);
-            return account?.Incomes - account?.Outcomes;
+            GetById(accountId)?.Fund(amount);
         }
 
         private PaymentAccount? GetById(int accountId)
