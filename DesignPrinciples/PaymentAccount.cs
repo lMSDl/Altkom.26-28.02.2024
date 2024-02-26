@@ -18,7 +18,5 @@ namespace Altkom._26_28._02._2024.DesignPrinciples
         public float Incomes { get; set; }
         public float Outcomes { get; set; }
         public float AllowedDebit { get; set; }
-
-        public bool HasDebit => Incomes - Outcomes < 0;
     }
 }

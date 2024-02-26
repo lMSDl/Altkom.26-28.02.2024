@@ -10,16 +10,6 @@ namespace Altkom._26_28._02._2024.DesignPrinciples
     {
         private ICollection<PaymentAccount> PaymentAccounts { get; } = new List<PaymentAccount> { new PaymentAccount(1), new PaymentAccount(2), new PaymentAccount(3), new PaymentAccount(4), new PaymentAccount(5) };
 
-        public bool DeletePaymentAccounts(PaymentAccount paymentAccount)
-        {
-            return PaymentAccounts.Remove(paymentAccount);
-        }
-
-        public PaymentAccount? FindByAllowedDebit(float allowedDebit)
-        {
-            return PaymentAccounts.SingleOrDefault(x => x.AllowedDebit == allowedDebit);
-        }
-
         public bool Charge(int accountId, float amount)
         {
             var account = GetById(accountId);
