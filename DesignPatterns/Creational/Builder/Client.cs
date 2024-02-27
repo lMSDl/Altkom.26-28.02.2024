@@ -19,11 +19,17 @@
             Console.WriteLine(vehicle);
 
             vehicle = new VehicleBuilder()
-                                .SetWeels(4)
-                                .SetDoors(4)
-                                .SetTrunk(500)
-                                .SetSeets(5)
-                                .SetEngine(150)
+                                .Parts
+                                    .SetWeels(4)
+                                    .SetDoors(4)
+                                .Info
+                                    .SetManufacturer("Altkom")
+                                .Parts
+                                    .SetTrunk(500)
+                                    .SetSeets(5)
+                                    .SetEngine(150)
+                                 .Info
+                                    .SetYear(2024)
                                 .Build();
 
             Console.WriteLine(vehicle);
