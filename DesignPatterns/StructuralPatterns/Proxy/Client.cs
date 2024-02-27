@@ -10,7 +10,8 @@ namespace Altkom._26_28._02._2024.DesignPatterns.StructuralPatterns.Proxy
     {
         public static void Execute()
         {
-            IDatabase database = new Database();
+            IDatabase database;// = new Database();
+            database = new DatabaseProxy(() => new Database());
 
             for (int i = 1; i < 11; i++)
             {
