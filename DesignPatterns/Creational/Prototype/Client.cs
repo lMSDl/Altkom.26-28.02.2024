@@ -15,13 +15,23 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Creational.Prototype
                 Address = new Address { City = "Warszawa", Street = "Krakowska" },
             };
 
-            var p1 = new Person()
+            /*var p1 = new Person()
             {
                 FirstName = "Monika",
                 LastName = "Ewowska",
                 Age = 40,
                 Address = new Address { City = "Warszawa", Street = "Krakowska" },
-            };
+            };*/
+
+            var p1 = (Person)p0.Clone();
+            p1.FirstName = "Monika";
+            p1.Age = 40;
+
+            Console.WriteLine(p0);
+            Console.WriteLine(p1);
+
+            p0.Address.Street = "Lubelska";
+
 
             Console.WriteLine(p0);
             Console.WriteLine(p1);

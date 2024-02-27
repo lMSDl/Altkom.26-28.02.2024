@@ -13,8 +13,9 @@
             builder.SetSeets(5);
             builder.SetEngine(150);
 
-
             var vehicle = builder.Build();
+            
+            builder.SetWeels(100);
             Console.WriteLine(vehicle);
 
             vehicle = new VehicleBuilder()
