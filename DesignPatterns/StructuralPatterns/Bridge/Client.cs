@@ -14,6 +14,13 @@ namespace Altkom._26_28._02._2024.DesignPatterns.StructuralPatterns.Bridge
             Console.WriteLine(shape);
             Color color = new Red();
             Console.WriteLine(color);
+
+            shape.Color = color;
+            Console.WriteLine(shape);
+
+            color.Tone = new Light();
+
+            Console.WriteLine(shape);
         }
     }
 }

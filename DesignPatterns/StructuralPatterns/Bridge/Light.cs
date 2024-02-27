@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Altkom._26_28._02._2024.DesignPatterns.StructuralPatterns.Bridge
 {
-    internal abstract class Color
+    internal class Light : Tone
     {
-        public Tone? Tone { get; set; }
-
-        public override string ToString()
-        {
-            return (Tone?.ToString() ?? "") + GetType().Name;
-        }
     }
 }
