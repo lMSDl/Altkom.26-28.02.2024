@@ -10,9 +10,9 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Behavioral.Visitor.I
     {
         public string Text { get; set; }
 
-        public string ToHtml()
+        public void Accept(IVisitor visitor)
         {
-            return $"<b>{Text}</b>";
+            visitor.Visit(this);
         }
     }
 }

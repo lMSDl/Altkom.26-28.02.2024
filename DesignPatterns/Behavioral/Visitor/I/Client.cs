@@ -19,14 +19,14 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Behavioral.Visitor.I
                 new Hyperlink() {Text = "Hyperlink",  Link=@"https:\\some.url.pl"}
 };
 
-
-            var builder = new StringBuilder();
+            HtmlVisitor visitor = new HtmlVisitor();
 
             foreach (var item in collection)
             {
-                builder.Append(item.ToHtml());
+                item.Accept(visitor);
             }
-            Console.WriteLine( builder.ToString());
+
+            Console.WriteLine( visitor.ToString());
         }
     }
 }
