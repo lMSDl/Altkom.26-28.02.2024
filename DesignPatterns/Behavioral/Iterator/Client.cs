@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace Altkom._26_28._02._2024.DesignPatterns.Behavioral.Iterator
@@ -29,6 +31,13 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Behavioral.Iterator
             {
                 Console.WriteLine(item.Item1 + item.Item2);
             }
+
+            list.ToObservable()
+                .Buffer(2, 1)
+                .Where(x => x.Count == 2)
+                .ToEnumerable()
+                .ToList()
+                .ForEach(x => Console.WriteLine(x[0] + x[1]));
         }
     }
 }
