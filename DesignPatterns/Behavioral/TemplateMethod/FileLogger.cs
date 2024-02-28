@@ -6,31 +6,21 @@ using System.Threading.Tasks;
 
 namespace Altkom._26_28._02._2024.DesignPatterns.Behavioral.TemplateMethod
 {
-    public class FileLogger
+    internal class FileLogger : Logger<string, FileService>
     {
-        public void Log(object message)
+        protected override void Save(string item, FileService? service)
         {
-            string messageToLog = SerializeMessage(message);
-            OpenFile();
-            WriteLogMessage(messageToLog);
-            CloseFile();
+            service.Write(item);
         }
-        private string SerializeMessage(object message)
+
+        protected override string CreateItem(string message)
         {
-            Console.WriteLine("Serializing message");
-            return message.ToString();
+            return message;
         }
-        private void OpenFile()
+
+        protected override FileService GetService()
         {
-            Console.WriteLine("Opening File.");
-        }
-        private void WriteLogMessage(string message)
-        {
-            Console.WriteLine("Appending Log message to file : " + message);
-        }
-        private void CloseFile()
-        {
-            Console.WriteLine("Close File.");
+            return new FileService();
         }
     }
 }
