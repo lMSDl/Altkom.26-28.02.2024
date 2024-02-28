@@ -19,7 +19,16 @@ namespace Altkom._26_28._02._2024.DesignPatterns.Behavioral.Iterator
                 buffer = list[i];
             }
 
+            var bufferIterator = new Buffer<string>(list).GetEnumerator();
+            while (bufferIterator.MoveNext())
+            {
+                Console.WriteLine(bufferIterator.Current.Item1 + bufferIterator.Current.Item2);
+            }
 
+            foreach (var item in new Buffer<string>(list))
+            {
+                Console.WriteLine(item.Item1 + item.Item2);
+            }
         }
     }
 }
